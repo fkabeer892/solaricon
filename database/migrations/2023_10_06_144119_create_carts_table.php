@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("user_id");
                 $table->foreign("user_id")->on("users")->references("id");
-            $table->decimal("discount", 10, 2);
             $table->decimal("total", 10, 2);
+            $table->decimal("discount", 10, 2);
+            $table->decimal("grand_total", 10, 2);
             $table->timestamps();
         });
     }
@@ -27,7 +28,7 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table("carts", function (Blueprint $table){
-            $table->dropForeign('user_id');
+            $table->dropConstrainedForeignId('user_id');
         });
         Schema::dropIfExists('carts');
     }

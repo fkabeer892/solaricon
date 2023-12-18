@@ -11,11 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('attributes', function (Blueprint $table) {
+        Schema::create('statuses', function (Blueprint $table) {
             $table->id();
+            $table->string("object");
             $table->string("name");
-            $table->string("type")->nullable();
-            $table->string("default")->nullable();
+            $table->string("handler")->nullable();
+            $table->boolean("is_active");
             $table->timestamps();
         });
     }
@@ -25,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('attributes');
+        Schema::dropIfExists('statuses');
     }
 };

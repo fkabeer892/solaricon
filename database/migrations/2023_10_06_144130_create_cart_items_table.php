@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string("product_name");
             $table->integer("quantity")->default(1);
             $table->decimal("price", 10, 2);
-            $table->decimal("discount", 10, 2);
+            $table->decimal("discount", 10, 2)->default(0);
             //$table->integer("inline_total");
             $table->decimal("inline_total", 10, 2)->storedAs('(quantity * price) - discount');
             $table->timestamps();
@@ -33,7 +33,8 @@ return new class extends Migration
     public function down(): void
     {
         Schema::table("cart_items", function (Blueprint $table){
-            $table->dropForeign('cart_id');
+            $table->dropConstrainedForeignId('cart_id');
+            $table->dropConstrainedForeignId('product_id');
         });
         Schema::dropIfExists('cart_items');
     }

@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('contact_detail', function (Blueprint $table) {
+        Schema::create('expense_types', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->boolean("is_repeating");
+            $table->string("frequency")->nullable();
+            $table->integer("amount")->default(0);
             $table->timestamps();
         });
     }
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('contact_detail');
+        Schema::dropIfExists('expense_types');
     }
 };

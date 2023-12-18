@@ -11,8 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cms_types', function (Blueprint $table) {
+        Schema::create('operations', function (Blueprint $table) {
             $table->id();
+            $table->string("key");
+            $table->string("label");
             $table->timestamps();
         });
     }
@@ -22,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cms_types');
+        Schema::dropIfExists('operations');
     }
 };

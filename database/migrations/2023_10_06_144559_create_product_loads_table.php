@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('product_loads', function (Blueprint $table) {
             $table->id();
+            $table->string("name");
+            $table->string("load");
             $table->timestamps();
         });
     }
