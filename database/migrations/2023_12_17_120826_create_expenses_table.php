@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger("expense_type_id");
                 $table->foreign("expense_type_id")->on("expense_types")->references("id");
+            $table->unsignedBigInteger("branch_id")->nullable();
+                $table->foreign("branch_id")->on("branches")->references("id");
             $table->string("name");
             $table->decimal("amount", 10, 2);
             $table->unsignedBigInteger("status_id");
@@ -28,6 +30,11 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table("expenses", function (Blueprint $table){
+            $table->dropConstrainedForeignId("expense_type_id");
+            $table->dropConstrainedForeignId("branch_id");
+            $table->dropConstrainedForeignId("status_id");
+        });
         Schema::dropIfExists('expenses');
     }
 };

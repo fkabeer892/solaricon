@@ -120,6 +120,45 @@ class DatabaseSeeder extends Seeder
             ['name' => 'Customer']
         ]);
 
+        $branchContactId = DB::table('contacts')->insertGetId([
+            "address" => "Office# 225-228, 2nd Floor, Lexus Mall",
+            "area" => "Gulberg Greens",
+            "city" => "Islamabad",
+            "state" => "ICT",
+            "mobile" => "03459042489"
+        ]);
+
+        DB::table("branches")->insert([
+            "name" => "Islamabad",
+            "contact_id" => $branchContactId
+        ]);
+
+        $branchContactId = DB::table('contacts')->insertGetId([
+            "address" => "LG UG 31, Deans Trade Center",
+            "area" => "Peshawar Cantt",
+            "city" => "Peshawar",
+            "mobile" => "03225312306"
+        ]);
+
+        DB::table("branches")->insert([
+            "name" => "Peshawar Cantt",
+            "contact_id" => $branchContactId
+        ]);
+
+        $branchContactId = DB::table('contacts')->insertGetId([
+            "address" => "Ring Road, Near Sarhad University",
+            "area" => "Ring Road",
+            "city" => "Peshawar",
+            "mobile" => "03338230872",
+            "phone" => "091-5253001"
+        ]);
+
+        DB::table("branches")->insert([
+            "name" => "Ring Road Peshawar",
+            "contact_id" => $branchContactId
+        ]);
+
+
         $contactId = DB::table('contacts')->insertGetId([
             "address" => "Office# 225-228, 2nd Floor, Lexus Mall",
             "area" => "Gulberg Greens",

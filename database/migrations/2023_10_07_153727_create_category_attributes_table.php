@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('category_attributes', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger("product_id");
+                $table->foreign("product_id")->on("products")->references("id");
+            $table->unsignedBigInteger("attribute_id");
+                $table->foreign("attribute_id")->on("attributes")->references("id");
+            $table->string("value");
             $table->timestamps();
         });
     }
@@ -22,6 +27,10 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::table("category_attributes", function (Blueprint $table){
+            $table->dropConstrainedForeignId('product_id');
+            $table->dropConstrainedForeignId('attribute_id');
+        });
         Schema::dropIfExists('category_attributes');
     }
 };
