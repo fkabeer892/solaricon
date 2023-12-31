@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Models;
+
 use App\Model;
 
-class CmsType extends Model{
+class CmsType extends Model
+{
 
     protected $fillable = [
-                        "name",
-        
-    
+        "name"
     ];
 
-    
-                    function cms(){
-            return $this->hasMany( Cm::class);
-        }
-            
+    function cms()
+    {
+        return $this->hasMany(Cms::class);
+    }
+
 }
