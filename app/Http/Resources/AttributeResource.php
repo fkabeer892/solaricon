@@ -23,10 +23,10 @@ class AttributeResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'productTypesAttributes' => ProductTypesAttributeResource::collection($this->whenLoaded('productTypesAttributes')),
-            'productAttributes' => ProductAttributeResource::collection($this->whenLoaded('productAttributes')),
-            'categoryAttributes' => CategoryAttributeResource::collection($this->whenLoaded('categoryAttributes')),
-
+    'productTypesAttributes' => ProductTypesAttributeResource::collection($this->whenLoaded('productTypesAttributes')),
+   'productAttributes' => ProductAttributeResource::collection($this->whenLoaded('productAttributes')),
+   'categoryAttributes' => CategoryAttributeResource::collection($this->whenLoaded('categoryAttributes')),
+   
         ];
     }
 }

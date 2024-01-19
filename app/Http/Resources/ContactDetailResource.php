@@ -22,8 +22,8 @@ class ContactDetailResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'contact' => ContactResource::collection($this->whenLoaded('contact')),
-
+    'contact' => new ContactResource($this->whenLoaded('contact')),
+    
         ];
     }
 }

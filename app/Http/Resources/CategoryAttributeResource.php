@@ -22,9 +22,9 @@ class CategoryAttributeResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'product' => ProductResource::collection($this->whenLoaded('product')),
-            'attribute' => AttributeResource::collection($this->whenLoaded('attribute')),
-
+    'product' => new ProductResource($this->whenLoaded('product')),
+    'attribute' => new AttributeResource($this->whenLoaded('attribute')),
+    
         ];
     }
 }

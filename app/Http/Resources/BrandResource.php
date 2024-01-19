@@ -20,8 +20,8 @@ class BrandResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'products' => ProductResource::collection($this->whenLoaded('products')),
-
+    'products' => ProductResource::collection($this->whenLoaded('products')),
+   
         ];
     }
 }

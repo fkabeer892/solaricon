@@ -20,9 +20,9 @@ class ProductTypeResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'productTypesAttributes' => ProductTypesAttributeResource::collection($this->whenLoaded('productTypesAttributes')),
-            'products' => ProductResource::collection($this->whenLoaded('products')),
-
+    'productTypesAttributes' => ProductTypesAttributeResource::collection($this->whenLoaded('productTypesAttributes')),
+   'products' => ProductResource::collection($this->whenLoaded('products')),
+   
         ];
     }
 }

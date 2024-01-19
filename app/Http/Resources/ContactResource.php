@@ -29,11 +29,12 @@ class ContactResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'users' => UserResource::collection($this->whenLoaded('users')),
-            'orders' => OrderResource::collection($this->whenLoaded('orders')),
-            'contactDetail' => ContactDetailResource::collection($this->whenLoaded('contactDetail')),
-            'branches' => BranchResource::collection($this->whenLoaded('branches')),
-
+    'users' => UserResource::collection($this->whenLoaded('users')),
+   'orders' => OrderResource::collection($this->whenLoaded('orders')),
+   'contactDetail' => ContactDetailResource::collection($this->whenLoaded('contactDetail')),
+   'branches' => BranchResource::collection($this->whenLoaded('branches')),
+       'user' => new UserResource($this->whenLoaded('user')),
+    
         ];
     }
 }

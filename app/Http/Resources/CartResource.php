@@ -23,10 +23,10 @@ class CartResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'user' => UserResource::collection($this->whenLoaded('user')),
-            'orders' => OrderResource::collection($this->whenLoaded('orders')),
-            'cartItems' => CartItemResource::collection($this->whenLoaded('cartItems')),
-
+    'user' => new UserResource($this->whenLoaded('user')),
+        'orders' => OrderResource::collection($this->whenLoaded('orders')),
+   'cartItems' => CartItemResource::collection($this->whenLoaded('cartItems')),
+   
         ];
     }
 }

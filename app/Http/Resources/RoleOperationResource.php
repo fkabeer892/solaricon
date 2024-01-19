@@ -22,9 +22,9 @@ class RoleOperationResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'role' => RoleResource::collection($this->whenLoaded('role')),
-            'operation' => OperationResource::collection($this->whenLoaded('operation')),
-
+    'role' => new RoleResource($this->whenLoaded('role')),
+    'operation' => new OperationResource($this->whenLoaded('operation')),
+    
         ];
     }
 }

@@ -20,8 +20,8 @@ class CmsTypeResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'cms' => CmsResource::collection($this->whenLoaded('cms')),
-
+    'cms' => CmsResource::collection($this->whenLoaded('cms')),
+   
         ];
     }
 }

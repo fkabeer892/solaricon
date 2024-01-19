@@ -27,14 +27,14 @@ class ProductResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'productType' => ProductTypeResource::collection($this->whenLoaded('productType')),
-            'category' => CategoryResource::collection($this->whenLoaded('category')),
-            'brand' => BrandResource::collection($this->whenLoaded('brand')),
-            'productAttributes' => ProductAttributeResource::collection($this->whenLoaded('productAttributes')),
-            'orderItems' => OrderItemResource::collection($this->whenLoaded('orderItems')),
-            'categoryAttributes' => CategoryAttributeResource::collection($this->whenLoaded('categoryAttributes')),
-            'cartItems' => CartItemResource::collection($this->whenLoaded('cartItems')),
-
+    'productAttributes' => ProductAttributeResource::collection($this->whenLoaded('productAttributes')),
+   'orderItems' => OrderItemResource::collection($this->whenLoaded('orderItems')),
+   'categoryAttributes' => CategoryAttributeResource::collection($this->whenLoaded('categoryAttributes')),
+   'cartItems' => CartItemResource::collection($this->whenLoaded('cartItems')),
+       'productType' => new ProductTypeResource($this->whenLoaded('productType')),
+    'category' => new CategoryResource($this->whenLoaded('category')),
+    'brand' => new BrandResource($this->whenLoaded('brand')),
+    
         ];
     }
 }

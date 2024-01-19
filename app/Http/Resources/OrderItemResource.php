@@ -27,10 +27,10 @@ class OrderItemResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'user' => UserResource::collection($this->whenLoaded('user')),
-            'product' => ProductResource::collection($this->whenLoaded('product')),
-            'order' => OrderResource::collection($this->whenLoaded('order')),
-
+    'user' => new UserResource($this->whenLoaded('user')),
+    'product' => new ProductResource($this->whenLoaded('product')),
+    'order' => new OrderResource($this->whenLoaded('order')),
+    
         ];
     }
 }

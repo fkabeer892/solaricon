@@ -24,10 +24,10 @@ class ExpenseResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'status' => StatuResource::collection($this->whenLoaded('status')),
-            'expenseType' => ExpenseTypeResource::collection($this->whenLoaded('expenseType')),
-            'branch' => BranchResource::collection($this->whenLoaded('branch')),
-
+    'status' => new StatusResource($this->whenLoaded('status')),
+    'expenseType' => new ExpenseTypeResource($this->whenLoaded('expenseType')),
+    'branch' => new BranchResource($this->whenLoaded('branch')),
+    
         ];
     }
 }

@@ -26,9 +26,9 @@ class CartItemResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'product' => ProductResource::collection($this->whenLoaded('product')),
-            'cart' => CartResource::collection($this->whenLoaded('cart')),
-
+    'product' => new ProductResource($this->whenLoaded('product')),
+    'cart' => new CartResource($this->whenLoaded('cart')),
+    
         ];
     }
 }

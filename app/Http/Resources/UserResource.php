@@ -1,13 +1,15 @@
 <?php
+
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+
 class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
      *
-     * @param    \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return  array
      */
     public function toArray($request)
@@ -29,15 +31,17 @@ class UserResource extends JsonResource
             'status_id' => $this->status_id,
             'branch_id' => $this->branch_id,
 
-            'status' => StatuResource::collection($this->whenLoaded('status')),
-            'role' => RoleResource::collection($this->whenLoaded('role')),
-            'contacts' => ContactResource::collection($this->whenLoaded('contacts')),
-            'branch' => BranchResource::collection($this->whenLoaded('branch')),
             'userRoles' => UserRoleResource::collection($this->whenLoaded('userRoles')),
             'orderItems' => OrderItemResource::collection($this->whenLoaded('orderItems')),
             'orders' => OrderResource::collection($this->whenLoaded('orders')),
+            'contacts' => ContactResource::collection($this->whenLoaded('contacts')),
             'cms' => CmsResource::collection($this->whenLoaded('cms')),
             'carts' => CartResource::collection($this->whenLoaded('carts')),
+            'status' => new StatusResource($this->whenLoaded('status')),
+            'role' => new RoleResource($this->whenLoaded('role')),
+            'contact' => new ContactResource($this->whenLoaded('contact')),
+            'branch' => new BranchResource($this->whenLoaded('branch')),
+
 
         ];
     }

@@ -20,10 +20,10 @@ class RoleResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'userRoles' => UserRoleResource::collection($this->whenLoaded('userRoles')),
-            'users' => UserResource::collection($this->whenLoaded('users')),
-            'roleOperations' => RoleOperationResource::collection($this->whenLoaded('roleOperations')),
-
+    'userRoles' => UserRoleResource::collection($this->whenLoaded('userRoles')),
+   'users' => UserResource::collection($this->whenLoaded('users')),
+   'roleOperations' => RoleOperationResource::collection($this->whenLoaded('roleOperations')),
+   
         ];
     }
 }

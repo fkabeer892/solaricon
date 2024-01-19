@@ -29,14 +29,12 @@ use App\Http\Controllers\Api\ContactDetailController;
 use App\Http\Controllers\Api\ContactUsController;
 use App\Http\Controllers\Api\ExpenseController;
 use App\Http\Controllers\Api\ExpenseTypeController;
-use App\Http\Controllers\Api\FailedJobController;
+
 use App\Http\Controllers\Api\ImageController;
-use App\Http\Controllers\Api\MigrationController;
+
 use App\Http\Controllers\Api\OperationController;
 use App\Http\Controllers\Api\OrderController;
 use App\Http\Controllers\Api\OrderItemController;
-use App\Http\Controllers\Api\PasswordResetTokenController;
-use App\Http\Controllers\Api\PersonalAccessTokenController;
 use App\Http\Controllers\Api\ProductAttributeController;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\ProductLoadController;
@@ -152,13 +150,7 @@ Route::group(['prefix'=>'expense-type'], function (){
     Route::put('/{id}', [ExpenseTypeController::class, 'update']);
     Route::delete('/{id}', [ExpenseTypeController::class, 'destroy']);
 });
-Route::group(['prefix'=>'failed-job'], function (){
-    Route::get('/', [FailedJobController::class, 'index']);
-    Route::get('/data', [FailedJobController::class, 'data']);
-    Route::post('/', [FailedJobController::class, 'store']);
-    Route::put('/{id}', [FailedJobController::class, 'update']);
-    Route::delete('/{id}', [FailedJobController::class, 'destroy']);
-});
+
 Route::group(['prefix'=>'image'], function (){
     Route::get('/', [ImageController::class, 'index']);
     Route::get('/data', [ImageController::class, 'data']);
@@ -166,13 +158,7 @@ Route::group(['prefix'=>'image'], function (){
     Route::put('/{id}', [ImageController::class, 'update']);
     Route::delete('/{id}', [ImageController::class, 'destroy']);
 });
-Route::group(['prefix'=>'migration'], function (){
-    Route::get('/', [MigrationController::class, 'index']);
-    Route::get('/data', [MigrationController::class, 'data']);
-    Route::post('/', [MigrationController::class, 'store']);
-    Route::put('/{id}', [MigrationController::class, 'update']);
-    Route::delete('/{id}', [MigrationController::class, 'destroy']);
-});
+
 Route::group(['prefix'=>'operation'], function (){
     Route::get('/', [OperationController::class, 'index']);
     Route::get('/data', [OperationController::class, 'data']);
@@ -193,20 +179,6 @@ Route::group(['prefix'=>'order-item'], function (){
     Route::post('/', [OrderItemController::class, 'store']);
     Route::put('/{id}', [OrderItemController::class, 'update']);
     Route::delete('/{id}', [OrderItemController::class, 'destroy']);
-});
-Route::group(['prefix'=>'password-reset-token'], function (){
-    Route::get('/', [PasswordResetTokenController::class, 'index']);
-    Route::get('/data', [PasswordResetTokenController::class, 'data']);
-    Route::post('/', [PasswordResetTokenController::class, 'store']);
-    Route::put('/{id}', [PasswordResetTokenController::class, 'update']);
-    Route::delete('/{id}', [PasswordResetTokenController::class, 'destroy']);
-});
-Route::group(['prefix'=>'personal-access-token'], function (){
-    Route::get('/', [PersonalAccessTokenController::class, 'index']);
-    Route::get('/data', [PersonalAccessTokenController::class, 'data']);
-    Route::post('/', [PersonalAccessTokenController::class, 'store']);
-    Route::put('/{id}', [PersonalAccessTokenController::class, 'update']);
-    Route::delete('/{id}', [PersonalAccessTokenController::class, 'destroy']);
 });
 Route::group(['prefix'=>'product-attribute'], function (){
     Route::get('/', [ProductAttributeController::class, 'index']);

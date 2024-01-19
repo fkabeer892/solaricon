@@ -47,7 +47,7 @@ class StatusController extends Controller
             $query->where("name", "like", "%{$keyword}%");
         }
 
-        $statuses = $query->paginate();
+        $statuses = $query->paginate(3);
 
         return StatusResource::collection($statuses);
 

@@ -28,12 +28,12 @@ class OrderResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'user' => UserResource::collection($this->whenLoaded('user')),
-            'status' => StatuResource::collection($this->whenLoaded('status')),
-            'contact' => ContactResource::collection($this->whenLoaded('contact')),
-            'cart' => CartResource::collection($this->whenLoaded('cart')),
-            'orderItems' => OrderItemResource::collection($this->whenLoaded('orderItems')),
-
+    'user' => new UserResource($this->whenLoaded('user')),
+    'status' => new StatusResource($this->whenLoaded('status')),
+    'contact' => new ContactResource($this->whenLoaded('contact')),
+    'cart' => new CartResource($this->whenLoaded('cart')),
+        'orderItems' => OrderItemResource::collection($this->whenLoaded('orderItems')),
+   
         ];
     }
 }

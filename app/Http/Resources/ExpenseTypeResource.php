@@ -23,8 +23,8 @@ class ExpenseTypeResource extends JsonResource
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
 
-            'expenses' => ExpenseResource::collection($this->whenLoaded('expenses')),
-
+    'expenses' => ExpenseResource::collection($this->whenLoaded('expenses')),
+   
         ];
     }
 }

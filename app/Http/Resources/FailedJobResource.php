@@ -23,8 +23,8 @@ class FailedJobResource extends JsonResource
             'exception' => $this->exception,
             'failed_at' => $this->failed_at,
 
-            'branche' => BrancheResource::collection($this->whenLoaded('branche')),
-
+    'branch' => new BranchResource($this->whenLoaded('branch')),
+    
         ];
     }
 }
