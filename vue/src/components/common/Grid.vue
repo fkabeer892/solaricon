@@ -10,7 +10,8 @@ import { isProxy, toRaw, ref } from 'vue';
 import ModalDialog from '../common/ConfirmDialog.vue'
 import { createConfirmDialog } from 'vuejs-confirm-dialog'
 
-const { reveal, onConfirm, onCancel } = createConfirmDialog(ModalDialog)
+const dialog = createConfirmDialog(ModalDialog)
+
 
 //props.data.data = {}
 
@@ -74,19 +75,26 @@ const attr = {"size": 10, "name": "email", "class": "form-control"}
 
 const navigate = () => getData;
 
-const perform = (action) => {
-   console.log(action)
-   action = toRaw(action);
-   if(action.type === "critical"){
-     reveal()
+const confirmDelete = async () => {
+  const dialog = createConfirmDialog(ModalDialog)
+  const { data, isCanceled } = await dialog.reveal()
 
-     onConfirm(() => {
-       console.log('Confirmed!')
-     })
-     onCancel(() => {
-       console.log('Canceled!')
-     })
-   }
+  if(isCanceled) return
+
+  console.log(data);
+}
+
+const perform = (action) => {
+   action = toRaw(action);
+   console.log(action)
+   //if(action.type == "critical"){
+
+
+  confirmDelete();
+
+
+
+  //}
 }
 
 console.log(data);

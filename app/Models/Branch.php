@@ -24,7 +24,7 @@ class Branch extends Model
 
     function expenses()
     {
-        return $this->hasMany(Expens::class);
+        return $this->hasMany(Expense::class);
     }
 
 }

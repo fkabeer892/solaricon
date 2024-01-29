@@ -7,7 +7,9 @@ import Login from "../pages/Login.vue";
 import ForgotPassword from "../pages/ForgotPassword.vue";
 import Attributes from "../pages/Attributes.vue";
 import Users from "../pages/Users.vue";
+import Branches from "../pages/Branches.vue";
 import Status from "../pages/Status.vue";
+import Roles from "../pages/Roles.vue";
 import store from "../../store/index.js";
 
 const router = createRouter({
@@ -23,6 +25,8 @@ const router = createRouter({
         {path: '/attributes', name: "Attributes", component: Attributes},
         {path: '/users', name: "Users", component: Users},
         {path: '/status', name: "Status", component: Status},
+        {path: '/roles', name: "Roles", component: Roles},
+        {path: '/branches', name: "Branches", component: Branches},
       ]
     },
     {

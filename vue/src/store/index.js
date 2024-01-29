@@ -8,7 +8,11 @@ const store = createStore({
       },
       token: 123
     },
-    origin: "http://localhost/clients/qazi-kamran/solaricon/public/api"
+    globals: {
+      origin: "http://localhost/clients/qazi-kamran/solaricon/public/api",
+      gridType: "table"
+    },
+    data: []
   },
   getters: {},
   actions: {},

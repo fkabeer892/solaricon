@@ -13,7 +13,7 @@ export default defineComponent({
   }
 })
 */
-console.log(props);
+
 </script>
 
 <template>
@@ -22,6 +22,7 @@ console.log(props);
           <th v-for="(column, key) in props.columns" :key="{key}">{{ column.label }}</th>
           <th v-for="(action, key) in props.actions" :key="{key}">{{ action.label }}</th>
         </tr>
+        <slot/>
     </thead>
 </template>
 

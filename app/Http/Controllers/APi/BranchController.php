@@ -44,7 +44,14 @@ class BranchController extends Controller
         $keyword = $request->get("keyword");
 
         if ($keyword) {
-            $query->where("name", "like", "%{$keyword}%");
+            $query->where("name", "like", "%{$keyword}%")
+                ->orWhereHas("contact", function ($rel) use($keyword){
+                    $rel->where("address", "like", "%{$keyword}%")
+                        ->orWhere("area", "like", "%{$keyword}%")
+                        ->orWhere("city", "like", "%{$keyword}%")
+                        ->orWhere("state", "like", "%{$keyword}%")
+                    ;
+                });
         }
 
         $branches = $query->paginate();
